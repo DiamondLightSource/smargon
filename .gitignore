@@ -1,0 +1,12 @@
+O.*/
+data/
+db/
+dbd/
+*~
+*.eml
+*.iml
+documentation/doxygen/
+iocs/example/
+iocs/example_sim/
+moved-to-git
+
