@@ -3,13 +3,16 @@ from iocbuilder import Xml
 from iocbuilder import Substitution, AutoSubstitution, SetSimulation, Device, records, Architecture, IocDataStream
 from iocbuilder.arginfo import *
 from iocbuilder import iocinit, configure
+from iocbuilder.modules.motor import *
+from iocbuilder.modules.pmac import *
+from iocbuilder.modules.motor import MotorLib, basic_asyn_motor, MotorRecord
+
 
 class smargonBasicTemplate(AutoSubstitution):
     TemplateFile = 'smargonBase.db'
 
 class smargon(Device,):
-    #Dependencies = (ADCore,)
-    #TemplateFile = "sem.template"
+    Dependencies = (MotorLib, )
     def __init__(self,P,PPMAC,PORT_NAME,IP_ADDRESS,UNAME = "root",PASSWORD = "deltatau", CS_NO = 1,PROG_NO = 10):
         self.__super.__init__()
         self.P = P
@@ -21,8 +24,8 @@ class smargon(Device,):
         self.CS_NO = CS_NO
         self.PROG_NO = PROG_NO
         self.CS_NAME = "CS" + str(CS_NO)
-        smargonBasicTemplate(P = self.P,)
-    # __init__ arguments
+        smargonBasicTemplate(P=self.P, PPMAC=self.PPMAC) 
+ # __init__ arguments
     ArgInfo = makeArgInfo(__init__,
         P = Simple("Device Prefix", str),
         PPMAC = Simple("Power pmac name", str),
@@ -34,8 +37,8 @@ class smargon(Device,):
         PROG_NO = Simple("Motion program number", int),
     )
     # Device attributes
-    #LibFileList = ['ADJeol_JSM-IT100']
-    #DbdFileList = ['semDetectorSupport']
+    LibFileList = ['smargon']
+    DbdFileList = ['smargon']
 
     
     def Initialise(self):
