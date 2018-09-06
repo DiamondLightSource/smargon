@@ -19,7 +19,6 @@ include $(TOP)/configure/CONFIG
 # template files like this
 #
 #DB += BL06I-MO-IOC-01.db
-DB += smargonBase.db
 
 #USES_TEMPLATE += $(MOTOR)/db/motor.template
 #USES_TEMPLATE += $(MOTOR)/db/basic_motor.template

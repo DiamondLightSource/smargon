@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<pmac.pmacAsynSSHPort IP="172.23.103.173" name="$(SSH_PORT)"/>
+	<pmac.PowerPMAC NAxes="8" P="$(P)" Port="$(SSH_PORT)" name="$(PPMAC_PORT)"/>
+	<pmac.PowerPmacStatus DEVICE="$(PPMAC_PREFIX)" FEEDRATE="0" NAXES="8" PLC="13" PORT="$(PPMAC_PORT)" TIMEOUT="100" name="PPMAC_STATUS"/>
+    <pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="1" DESC="SmarGon Y" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_1" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="2" DESC="SmarGon Z" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_2" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="3" DESC="SmarGon X1" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_3" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="4" DESC="SmarGon X2" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_4" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="5" DESC="SmarGon Phi" DHLM="0" DLLM="0" EGU="deg" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_5" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="60"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="6" DESC="SmarGon Omega" DHLM="0" DLLM="0" EGU="deg" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_6" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="180"/>
+	
+    <pmac.CS CS="$(CS_NO)" Controller="$(PPMAC_PORT)" name="$(CS_PORT)"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="7" DESC="X Translation" EGU="mm" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":X" MRES="0.0000001" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="10" name="SGON-X"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="8" DESC="Y Translation" EGU="mm" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":Y" MRES="0.0000001" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="10" name="SGON-Y"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="9" DESC="Z Translation" EGU="mm" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":Z" MRES="0.0000001" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="10" name="SGON-Z"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="1" DESC="Omega" EGU="deg" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":OMEGA" MRES="0.001000" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="180" name="SGON-OMEGA"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="2" DESC="Phi" EGU="deg" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":PHI" MRES="0.001000" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="80" name="SGON-PHI"/>
+	<pmac.dls_pmac_cs_asyn_motor ADDR="3" BACC="0.5" BDST="1" BVEL="12" DESC="Chi" EGU="deg" HLM="0" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" JAR="1" LLM="0" M=":CHI" MRES="0.0000001" P="$(P)" PORT="$(CS_PORT)" PREC="5" SREV="200" TWV="1" VELO="12" name="SGON-CHI"/>
+
+	<pmac.pmacSetCoordStepsPerUnit Axis="1" CS="$(CS_PORT)" Scale="1"/>
+	<pmac.pmacSetCoordStepsPerUnit Axis="2" CS="$(CS_PORT)" Scale="1"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 1 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 2 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 3 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 4 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 5 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 6 200"/>
+
+</components>
