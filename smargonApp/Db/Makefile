@@ -12,7 +12,7 @@ include $(TOP)/configure/CONFIG
 # templates like this
 #
 #DB += motor.template
-#DB += basic_motor.template
+DB += smargonHoming.template
 
 #----------------------------------------------------
 # In a Diamond IOC Application, build db files from

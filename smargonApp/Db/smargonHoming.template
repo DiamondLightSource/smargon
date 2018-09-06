@@ -1,0 +1,239 @@
+# % macro, P, Device prefix
+# % macro, PPMAC_PORT, Asyn address
+# % macro, ZEBRA, Base pv for the zebra used
+
+
+
+# Read the current homing status from the power pmac
+record(mbbi, "$(P):HOMESTATUS")
+{
+    field(DTYP, "asynInt32")
+    field(FRST, "Homing 4")
+    field(FRVL, "4")
+    field(FVST, "Homing 5 ")
+    field(FVVL, "5")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P10")
+    field(ONST, "Homing 1")
+    field(ONVL, "1")
+    field(SCAN, "I/O Intr")
+    field(SXST, "Homed")
+    field(SXVL, "6")
+    field(THST, "Homing 3")
+    field(THVL, "3")
+    field(TWST, "Homing 2")
+    field(TWVL, "2")
+    field(ZRST, "Not Homed")
+    field(ZRVL, "0")
+}
+
+# Start homing sequence:
+#   1   -   Disable subsequent puts into this record
+#   2   -   Store stub offsets
+#   3   -   Zero stub offsets and wait for DLY5
+#   4   -   Trigger homing PLC
+#   5   -   Clear the homed latch and wait for DLY9
+#
+record(seq, "$(P):HOME")
+{
+    field(DLY5, "0.2")
+    field(DLY9, "2")
+    field(DOL1, "1")
+    field(DOL2, "$(P):X_STUB_OFFSET_RBV")
+    field(DOL3, "$(P):Y_STUB_OFFSET_RBV")
+    field(DOL4, "$(P):Z_STUB_OFFSET_RBV")
+    field(DOL5, "0")
+    field(DOL6, "0")
+    field(DOL7, "0")
+    field(DOL8, "1")
+    field(DOL9, "0")
+    field(LNK1, "$(P):HOME.DISP")
+    field(LNK2, "$(P):X_STUB_OFFSET_STORE PP")
+    field(LNK3, "$(P):Y_STUB_OFFSET_STORE PP")
+    field(LNK4, "$(P):Z_STUB_OFFSET_STORE PP")
+    field(LNK5, "$(P):X_STUB_OFFSET PP")
+    field(LNK6, "$(P):Y_STUB_OFFSET PP")
+    field(LNK7, "$(P):Z_STUB_OFFSET PP")
+    field(LNK8, "$(P):DOHOME.PROC PP")
+    field(LNK9, "$(P):HOMED_LATCH PP")
+    field(SELM, "All")
+}
+
+
+# Records to read stub offsets and store them when needed
+record(ai, "$(P):X_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P21")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):X_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):Y_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P22")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):Y_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):Z_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P23")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):Z_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+#
+
+# Trigger homing PLC
+record(stringout, "$(P):DOHOME")
+{
+    field(DTYP, "asynOctetWrite")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_C_WRITE_CMD")
+    field(SCAN, "Passive")
+    field(VAL,  "enable plc 3")
+}
+
+# A latch to stop stub offset storage from happening twice
+# before the smargon has homed
+record(ai, "$(P):HOMED_LATCH")
+{
+    field(SCAN, "Passive")
+}
+
+# Detects when homing has completed so the stub offsets can be restored
+record(calcout, "$(P):DETECT_HOMING_COMPLETE")
+{
+    field(CALC, "(A=6)&&(B=1)&&(C=0)?1:0")
+    field(DESC, "Detect when smargon homing has finished")
+    field(INPA, "$(P):HOMESTATUS.RVAL CP")
+    field(INPB, "$(P):CHI.DMOV CP")
+    field(INPC, "$(P):HOMED_LATCH CP")
+    field(OOPT, "Transition To Non-zero")
+    field(OUT,  "$(P):RESTORE_STUBS.PROC PP")
+}
+
+# Restor stub offset sequence:
+#   1   -   Restore stub offsets
+#   2   -   Set the homed latch
+#   3   -   Re-enable the home record
+#
+record(seq, "$(P):RESTORE_STUBS")
+{
+    field(DLY1, "0.5")
+    field(DOL1, "$(P):X_STUB_OFFSET_STORE")
+    field(DOL2, "$(P):Y_STUB_OFFSET_STORE")
+    field(DOL3, "$(P):Z_STUB_OFFSET_STORE")
+    field(DOL4, "1")
+    field(DOL5, "0")
+    field(LNK1, "$(P):X_STUB_OFFSET PP")
+    field(LNK2, "$(P):Y_STUB_OFFSET PP")
+    field(LNK3, "$(P):Z_STUB_OFFSET PP")
+    field(LNK4, "$(P):HOMED_LATCH PP")
+    field(LNK5, "$(P):HOME.DISP")
+    field(SELM, "All")
+}
+
+
+
+
+# Records to sync zebra positions after home
+record(calcout, "$(P):HOME_DETECT")
+{
+    field(CALC, "(A=6)?1:0")
+    field(DESC, "Detect homing completion")
+    field(INPA, "$(P):HOMESTATUS CP")
+    field(OOPT, "Transition To Non-zero")
+    field(OUT,  "$(P):HOME_FAN PP")
+}
+
+record(fanout, "$(P):HOME_FAN")
+{
+    field(DESC, "Fanout Copy Trigger")
+    field(LNK1, "$(ZEBRA):M1:SETPOS.PROC")
+    field(LNK2, "$(ZEBRA):M2:SETPOS.PROC")
+    field(LNK3, "$(ZEBRA):M3:SETPOS.PROC")
+    field(LNK4, "$(ZEBRA):M4:SETPOS.PROC")
+    field(SELM, "All")
+}
+
+record(seq, "$(P):SET_STUBS_TO_RL")
+{
+    field(DOL1, "$(P):RL_X_STUB_OFFSET_RBV")
+    field(DOL2, "$(P):RL_Y_STUB_OFFSET_RBV")
+    field(DOL3, "$(P):RL_Z_STUB_OFFSET_RBV")
+    field(LNK1, "$(P):X_STUB_OFFSET PP")
+    field(LNK2, "$(P):Y_STUB_OFFSET PP")
+    field(LNK3, "$(P):Z_STUB_OFFSET PP")
+    field(SELM, "All")
+}
+
+record(ai, "$(P):RL_X_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1240")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P):RL_Y_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1241")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P):RL_Z_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1242")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "1 second")
+}
+

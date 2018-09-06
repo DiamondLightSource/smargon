@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 1 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 2 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 3 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 4 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 5 200"/>
+	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 6 200"/>
+    <EPICS_BASE.dbpf pv="$(PPMAC_PREFIX):FEEDRATE" value="100"/>
+	<EPICS_BASE.dbpf pv="$(PPMAC_PREFIX):FEEDRATE_LIMIT" value="0"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_1.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_2.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_3.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_4.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_5.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_6.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_1.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_2.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_3.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_4.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_5.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):MOTOR_6.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):X.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):Y.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):Z.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):OMEGA.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):PHI.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):CHI.NTMF" value="10000"/>
+	<EPICS_BASE.dbpf pv="$(P):X.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):Y.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):Z.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):OMEGA.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):PHI.NTM" value="NO"/>
+	<EPICS_BASE.dbpf pv="$(P):CHI.NTM" value="NO"/>
+</components>

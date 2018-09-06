@@ -20,11 +20,5 @@
 
 	<pmac.pmacSetCoordStepsPerUnit Axis="1" CS="$(CS_PORT)" Scale="1"/>
 	<pmac.pmacSetCoordStepsPerUnit Axis="2" CS="$(CS_PORT)" Scale="1"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 1 200"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 2 200"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 3 200"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 4 200"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 5 200"/>
-	<EPICS_BASE.StartupCommand command="pmacSetAxisScale $(PPMAC_PORT) 6 200"/>
 
 </components>
