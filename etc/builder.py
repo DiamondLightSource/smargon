@@ -6,6 +6,7 @@ from iocbuilder import iocinit, configure
 from iocbuilder.modules.motor import *
 from iocbuilder.modules.pmac import *
 from iocbuilder.modules.motor import MotorLib, basic_asyn_motor, MotorRecord
+from iocbuilder.modules.asyn import Asyn, AsynPort, AsynIP
 
 
 class _smargonMotors(Xml):
@@ -20,13 +21,34 @@ class _homingLogic(AutoSubstitution):
 class _stubOffsets(AutoSubstitution):
     TemplateFile = "stubOffsets.template"
 
-
-class fastGridScans(Xml):
+class _fastGridScansTemplate(Xml):
     TemplateFile = "fastGridScans.xml"
 
 
-class fastGridScanRecords(AutoSubstitution):
+class _fastGridScanRecords(AutoSubstitution):
     TemplateFile = "fastGridScanRecords.template"
+
+
+class fastGridScans(Device):
+    def __init__(self,P,PPMAC_PORT,CS_NO,PVAR_CENT = 80,DITHER_PLC = 13,PROG_NO = 11):
+        self.__super.__init__()
+        self.P = P
+        self.PPMAC_PORT = PPMAC_PORT
+        self.CS_NO = CS_NO
+        self.PVAR_CENT = PVAR_CENT
+        self.DITHER_PLC = DITHER_PLC
+        self.PROG_NO = PROG_NO
+        _fastGridScansTemplate(P=self.P,CS_NO=self.CS_NO,PVAR_CENT=self.PVAR_CENT,PROG_NO=self.PROG_NO)
+        _fastGridScanRecords(P=self.P,PPMAC_PORT=self.PPMAC_PORT,CS_NO=self.CS_NO,PVAR_CENT=self.PVAR_CENT,DITHER_PLC=self.DITHER_PLC)
+    ArgInfo = makeArgInfo(__init__,
+        P = Simple("Device Prefix", str),
+        PPMAC_PORT = Simple("Power pmac port name", str),
+        CS_NO = Simple("Coordinate system number", int),
+        PVAR_CENT = Simple("P variable centry used for FGS", int),
+        DITHER_PLC = Simple("Dither PLC number", int),
+        PROG_NO = Simple("FGS program number", int),
+    )
+
 
 class smargon(Device,):
     Dependencies = (MotorLib, )
