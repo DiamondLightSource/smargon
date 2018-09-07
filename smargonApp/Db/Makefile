@@ -15,6 +15,7 @@ include $(TOP)/configure/CONFIG
 DB += smargonHoming.template
 DB += stubOffsets.template
 DB += fastGridScanRecords.template
+DB += robotInterlocks.template
 
 #----------------------------------------------------
 # In a Diamond IOC Application, build db files from

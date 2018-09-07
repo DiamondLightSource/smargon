@@ -28,6 +28,9 @@ class _fastGridScansTemplate(Xml):
 class _fastGridScanRecords(AutoSubstitution):
     TemplateFile = "fastGridScanRecords.template"
 
+class robotInterlocks(AutoSubstitution):
+    TemplateFile = "robotInterlocks.template"
+
 
 class fastGridScans(Device):
     def __init__(self,P,PPMAC_PORT,CS_NO,PVAR_CENT = 80,DITHER_PLC = 13,PROG_NO = 11):

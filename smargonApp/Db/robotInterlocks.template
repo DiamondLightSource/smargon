@@ -1,0 +1,50 @@
+# % macro, P, Device prefix
+# % macro, PPMAC_PORT, Asyn address
+# % macro, PLC_NO, Interlock PLC number
+
+record(longin, "$(P):DISABLED")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)12")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):X1:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)25")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):X2:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)26")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):OMEGA:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)27")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):Y:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)28")
+    field(SCAN, "I/O Intr")
+}
+record(longin, "$(P):Z:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)29")
+    field(SCAN, "I/O Intr")
+}
+record(longin, "$(P):PHI:INPOS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)30")
+    field(SCAN, "I/O Intr")
+}
