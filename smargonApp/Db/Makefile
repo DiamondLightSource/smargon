@@ -13,6 +13,8 @@ include $(TOP)/configure/CONFIG
 #
 #DB += motor.template
 DB += smargonHoming.template
+DB += stubOffsets.template
+DB += fastGridScanRecords.template
 
 #----------------------------------------------------
 # In a Diamond IOC Application, build db files from

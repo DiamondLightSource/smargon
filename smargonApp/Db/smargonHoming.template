@@ -2,6 +2,7 @@
 # % macro, PPMAC_PORT, Asyn address
 # % macro, ZEBRA, Base pv for the zebra used
 
+# Depends on stubOffsets.template
 
 
 # Read the current homing status from the power pmac
@@ -58,69 +59,6 @@ record(seq, "$(P):HOME")
     field(SELM, "All")
 }
 
-
-# Records to read stub offsets and store them when needed
-record(ai, "$(P):X_STUB_OFFSET_RBV")
-{
-    field(DTYP, "asynInt32")
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P21")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "I/O Intr")
-}
-
-record(ai, "$(P):X_STUB_OFFSET_STORE")
-{
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "Passive")
-}
-
-record(ai, "$(P):Y_STUB_OFFSET_RBV")
-{
-    field(DTYP, "asynInt32")
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P22")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "I/O Intr")
-}
-
-record(ai, "$(P):Y_STUB_OFFSET_STORE")
-{
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "Passive")
-}
-
-record(ai, "$(P):Z_STUB_OFFSET_RBV")
-{
-    field(DTYP, "asynInt32")
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P23")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "I/O Intr")
-}
-
-record(ai, "$(P):Z_STUB_OFFSET_STORE")
-{
-    field(EGU,  "mm")
-    field(ESLO, ".001")
-    field(LINR, "SLOPE")
-    field(PREC, "3")
-    field(SCAN, "Passive")
-}
-#
-
 # Trigger homing PLC
 record(stringout, "$(P):DOHOME")
 {
@@ -171,8 +109,6 @@ record(seq, "$(P):RESTORE_STUBS")
 }
 
 
-
-
 # Records to sync zebra positions after home
 record(calcout, "$(P):HOME_DETECT")
 {
@@ -209,7 +145,7 @@ record(ai, "$(P):RL_X_STUB_OFFSET_RBV")
     field(DTYP, "asynInt32")
     field(EGU,  "mm")
     field(ESLO, ".001")
-    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1240")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P1240")
     field(LINR, "SLOPE")
     field(PREC, "3")
     field(SCAN, "1 second")
@@ -220,7 +156,7 @@ record(ai, "$(P):RL_Y_STUB_OFFSET_RBV")
     field(DTYP, "asynInt32")
     field(EGU,  "mm")
     field(ESLO, ".001")
-    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1241")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P1241")
     field(LINR, "SLOPE")
     field(PREC, "3")
     field(SCAN, "1 second")
@@ -231,7 +167,7 @@ record(ai, "$(P):RL_Z_STUB_OFFSET_RBV")
     field(DTYP, "asynInt32")
     field(EGU,  "mm")
     field(ESLO, ".001")
-    field(INP,  "@asyn(PPMAC1,0,1)PMAC_VIM_P1242")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P1242")
     field(LINR, "SLOPE")
     field(PREC, "3")
     field(SCAN, "1 second")

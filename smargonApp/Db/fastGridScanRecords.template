@@ -1,0 +1,271 @@
+# % macro, P, Device prefix
+# % macro, PPMAC_PORT, Asyn address
+# % macro, CS_NO, Coordinate system number
+# % macro, PVAR_CENT, P variable centry used for FGS, eg, p8000 PVAR_CENT = 80
+# % macro, DITHER_PLC, PLC number for dither PLC
+
+record(ao, "$(P):FGS:DWELL_TIME")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)15")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:DWELL_TIME_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)15")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:PHI_DITHERING")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)05")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:PHI_DITHER_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)15")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:POS_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)02")
+    field(SCAN, ".1 second")
+}
+
+record(longout, "$(P):FGS:POS_COUNTER_WRITE")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)02")
+    field(SCAN, "Passive")
+}
+
+record(waveform, "$(P):FGS:RUN")
+{
+    field(DTYP, "asynOctetWrite")
+    field(FTVL, "CHAR")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_C_WRITE_CMD")
+    field(NELM, "100")
+    field(SCAN, "Passive")
+}
+
+record(longin, "$(P):FGS:SCAN_STATUS")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)01")
+    field(SCAN, "I/O Intr")
+}
+
+record(stringout, "$(P):FGS:STOP")
+{
+    field(DTYP, "asynOctetWrite")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_C_WRITE_CMD")
+    field(SCAN, "Passive")
+    field(VAL,  "&$(CS_NO)a P$(PVAR_CENT)01=0 Q77=Q87 Q78=Q88 Q79=Q89")
+}
+
+record(longin, "$(P):FGS:X1_DITHERING")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)03")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:X1_DITHER_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)13")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:X2_DITHERING")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)04")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:X2_DITHER_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)14")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:X_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)19")
+    field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P):FGS:X_NUM_STEPS")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)11")
+    field(SCAN, "Passive")
+}
+
+record(longin, "$(P):FGS:X_NUM_STEPS_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)11")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):FGS:X_START")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, "0.001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)16")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:X_START_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)16")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):FGS:X_STEP_SIZE")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, "0.001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)13")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:X_STEP_SIZE_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)13")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:Y_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)20")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:Y_DITHERING")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)01")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:Y_DITHER_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)11")
+    field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P):FGS:Y_NUM_STEPS")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)12")
+    field(SCAN, "Passive")
+}
+
+record(longin, "$(P):FGS:Y_NUM_STEPS_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)12")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):FGS:Y_START")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, "0.001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)17")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:Y_START_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)17")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):FGS:Y_STEP_SIZE")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, "0.001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)14")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:Y_STEP_SIZE_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)14")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:Z_DITHERING")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)02")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P):FGS:Z_DITHER_COUNTER")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(DITHER_PLC)12")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):FGS:Z_START")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, "0.001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PVAR_CENT)18")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):FGS:Z_START_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PVAR_CENT)18")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}

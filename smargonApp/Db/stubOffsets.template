@@ -1,0 +1,105 @@
+# % macro, P, Device prefix
+# % macro, PPMAC_PORT, Asyn address
+
+# Records to set, read and store stub offsets
+
+record(ao, "$(P):X_STUB_OFFSET")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P21")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):X_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P21")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):X_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ao, "$(P):Y_STUB_OFFSET")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P22")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):Y_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P22")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):Y_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ao, "$(P):Z_STUB_OFFSET")
+{
+    field(DTYP, "asynInt32")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P23")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(P):Z_STUB_OFFSET_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P23")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):Z_STUB_OFFSET_STORE")
+{
+    field(EGU,  "mm")
+    field(ESLO, ".001")
+    field(LINR, "SLOPE")
+    field(PREC, "3")
+    field(SCAN, "Passive")
+}
+
+record(waveform, "$(P):SETSTUBOFFSETS")
+{
+    field(DTYP, "asynOctetWrite")
+    field(FTVL, "CHAR")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_C_WRITE_CMD")
+    field(NELM, "100")
+    field(SCAN, "Passive")
+}
+
+#

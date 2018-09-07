@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<EPICS_BASE.dbpf pv="$(P):FGS:RUN" value="&amp;$(CS_NO)a P$(PVAR_CENT)01=0 Q70=0 Q77=Q87 Q78=Q88 Q79=Q89 &amp;$(CS_NO)b$(PROG_NO)r"/>
+	<smargon.fastGridScanRecords P="$(P)" PPMAC_PORT="$(PPMAC_PORT)" CS_NO="$(CS_NO)" PVAR_CENT="$(PVAR_CENT)" DITHER_PLC="$(DITHER_PLC)"  />
+</components>

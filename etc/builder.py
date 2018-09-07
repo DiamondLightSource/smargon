@@ -17,6 +17,17 @@ class _configOnStartup(Xml):
 class _homingLogic(AutoSubstitution):
     TemplateFile = "smargonHoming.template"
 
+class _stubOffsets(AutoSubstitution):
+    TemplateFile = "stubOffsets.template"
+
+
+class fastGridScans(Xml):
+    TemplateFile = "fastGridScans.xml"
+
+
+class fastGridScanRecords(AutoSubstitution):
+    TemplateFile = "fastGridScanRecords.template"
+
 class smargon(Device,):
     Dependencies = (MotorLib, )
     def __init__(self,P,PPMAC_PORT, SSH_PORT, PPMAC_NO,IP_ADDRESS, ZEBRA, UNAME = "root",PASSWORD = "deltatau", CS_NO = 1,PROG_NO = 10):
@@ -45,6 +56,8 @@ class smargon(Device,):
         _smargonMotors(P=self.P, PPMAC_PORT=self.PPMAC_PORT,PPMAC_PREFIX=self.PPMAC_PREFIX,SSH_PORT=self.SSH_PORT,CS_NO=self.CS_NO,CS_PORT=self.CS_PORT)
         _configOnStartup(P=self.P,PPMAC_PORT=self.PPMAC_PORT,PPMAC_PREFIX=self.PPMAC_PREFIX)
         _homingLogic(P=self.P,PPMAC_PORT=self.PPMAC_PORT,ZEBRA=self.ZEBRA)
+        _stubOffsets(P=self.P,PPMAC_PORT=self.PPMAC_PORT)
+        #_fastGridScans(P=self.P,PPMAC_PORT=self.PPMAC_PORT)
     # __init__ arguments
     ArgInfo = makeArgInfo(__init__,
         P = Simple("Device Prefix", str),
