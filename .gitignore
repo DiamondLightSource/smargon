@@ -2,6 +2,7 @@ O.*/
 data/
 db/
 dbd/
+lib/
 *~
 *.eml
 *.iml
