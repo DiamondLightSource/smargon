@@ -51,6 +51,6 @@ record(longin, "$(P):PHI:INPOS")
 record(longin, "$(P):READY")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)01")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)31")
     field(SCAN, "I/O Intr")
 }
