@@ -50,15 +50,6 @@ record(calcout, "$(P):INSTALL_DETECT")
     field(OUT,  "$(P):SGON_NOT_MOUNTED PP")
 }
 
-record(longin, "$(P):READY")
-{
-    field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)01")
-    field(SCAN, "I/O Intr")
-}
-
-
-
 record(ao, "$(P):SGON_NOT_MOUNTED")
 {
     field(DTYP, "asynInt32")

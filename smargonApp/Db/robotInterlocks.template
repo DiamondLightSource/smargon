@@ -48,3 +48,9 @@ record(longin, "$(P):PHI:INPOS")
     field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)30")
     field(SCAN, "I/O Intr")
 }
+record(longin, "$(P):READY")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)01")
+    field(SCAN, "I/O Intr")
+}
