@@ -31,6 +31,21 @@ class _fastGridScanRecords(AutoSubstitution):
 class robotInterlocks(AutoSubstitution):
     TemplateFile = "robotInterlocks.template"
 
+class _omegaProtectionTemplate(AutoSubstitution):
+    TemplateFile = "omegaProtection.template"
+
+
+class omegaProtection(Device):
+    def __init__(self,P,PPMAC_PORT,PLC_NO = 11):
+        self.P = P
+        self.PPMAC_PORT = PPMAC_PORT
+        self.PLC_NO = PLC_NO
+        _omegaProtectionTemplate(P=self.P,PPMAC_PORT=self.PPMAC_PORT,DOM=P[0:5],PLC_NO=self.PLC_NO)
+    ArgInfo = makeArgInfo(__init__,
+        P = Simple("Device Prefix", str),
+        PPMAC_PORT = Simple("Power pmac port name", str),
+        PLC_NO = Simple("Omega protection PLC number", int),
+    )
 
 class fastGridScans(Device):
     def __init__(self,P,PPMAC_PORT,CS_NO,PVAR_CENT = 80,DITHER_PLC = 13,PROG_NO = 11):

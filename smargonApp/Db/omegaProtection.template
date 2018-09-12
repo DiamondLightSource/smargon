@@ -1,0 +1,83 @@
+# % macro, P, Device prefix
+# % macro, PPMAC_PORT, Asyn address
+# % macro, DOM, Beamline domain, eg BL03I 
+# % macro, PLC_NO, PLC number of omega protection PLC
+
+
+# Records to check flu and cryo won't clash with the 
+# smargon during homing
+record(calcout, "$(P):CLEAR_TO_HOME")
+{
+    field(CALC, "A&&B?1:0")
+    field(DESC, "Inhibit smargon homing")
+    field(INPA, "$(P):FLU_SAFE CP")
+    field(INPB, "$(P):CRYO_SAFE CP")
+    field(OOPT, "On Change")
+    field(OUT,  "$(P):CLEAR_TO_HOME_WRITE PP")
+}
+
+record(calc, "$(P):FLU_SAFE")
+{
+    field(CALC, "(A=1)&&(B=0)&&(C=0)")
+    field(INPA, "$(DOM)-MO-STEP-01:GPIO_INP_BITS.BF CP")
+    field(INPB, "$(DOM)-MO-STEP-01:GPIO_INP_BITS.BE CP")
+    field(INPC, "$(DOM)-EA-FLU-01:CTRL CP")
+}
+
+record(calc, "$(P):CRYO_SAFE")
+{
+    field(CALC, "(A=1)&&(B=0)&&(C=0)")
+    field(INPA, "$(DOM)-MO-STEP-03:GPIO_INP_BITS.B8 CP")
+    field(INPB, "$(DOM)-MO-STEP-03:GPIO_INP_BITS.B7 CP")
+    field(INPC, "$(DOM)-EA-CJET-01:COARSE:CTRL CP")
+}
+
+record(ao, "$(P):CLEAR_TO_HOME_WRITE")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P240")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+#
+
+record(calcout, "$(P):INSTALL_DETECT")
+{
+    field(CALC, "A=5?0:1")
+    field(DESC, "Detect if smargon is installed")
+    field(INPA, "$(DOM)-MO-GONIO-01:READ_DEVICE_SWITCHES.TINP CP")
+    field(OOPT, "On Change")
+    field(OUT,  "$(P):SGON_NOT_MOUNTED PP")
+}
+
+record(longin, "$(P):READY")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIF_P$(PLC_NO)01")
+    field(SCAN, "I/O Intr")
+}
+
+
+
+record(ao, "$(P):SGON_NOT_MOUNTED")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_WI_P$(PLC_NO)06")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(bo, "$(P):SET_FLU_DET_IN")
+{
+  field(DESC, "Write Flu Det State to PowerPMAC")
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P$(PLC_NO)03")
+}
+
+record(bi, "$(P):READ_FLU_DET_DIS")
+{
+  field(DESC, "Read Flu Det Disable from PowerPMAC")
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PPMAC_PORT),0,1)PMAC_VIM_P$(PLC_NO)00")
+  field(SCAN, "I/O Intr")
+}

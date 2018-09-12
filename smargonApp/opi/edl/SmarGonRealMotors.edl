@@ -1,0 +1,3186 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 1101
+y 155
+w 558
+h 402
+font "arial-medium-r-14.0"
+ctlFont "arial-bold-r-14.0"
+btnFont "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 0
+ctlBgColor1 index 3
+ctlBgColor2 index 14
+topShadowColor index 1
+botShadowColor index 11
+title "SmarGon - Real Motors"
+showGrid
+snapToGrid
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 410
+y 50
+w 133
+h 80
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+visPv "$(P):CLEAR_TO_HOME"
+visInvert
+visMin "1"
+visMax "2"
+value {
+  "SmarGon homing "
+  "is disabled when "
+  "cryojet (coarse)"
+  "or flu detector "
+  "is in"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 590
+h 30
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 2
+w 582
+h 25
+lineColor index 1
+fillColor index 0
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1
+y 3
+w 582
+h 25
+lineColor index 11
+fillColor index 0
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 1
+y 3
+w 582
+h 24
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 0
+font "arial-bold-r-14.0"
+xPosOffset 5
+yPosOffset 5
+button3Popup
+invisible
+buttonLabel "tooltip"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "generic-tooltip"
+}
+setPosition {
+  0 "button"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 1
+y 3
+w 641
+h 25
+font "arial-bold-r-16.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 48
+value {
+  "Smargon RealMotors"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 10
+y 40
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=Y Motor,motor=$(P):MOTOR_1"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 45
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 143
+y 123
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 18
+y 96
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_1.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 172
+y 96
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_1.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 15
+y 123
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 40
+w 55
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  Y Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 75
+y 125
+w 60
+h 16
+controlPv "$(P):MOTOR_1.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 61
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 63
+y 59
+w 83
+h 33
+controlPv "$(P):MOTOR_1"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 151
+y 61
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 151
+y 46
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1.SPMG"
+indicatorPv "$(P):MOTOR_1.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 48
+y 97
+w 115
+h 20
+controlPv "$(P):MOTOR_1.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 131
+y 46
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 131
+y 46
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_1:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 96
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_1:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 96
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_1:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 168
+y 96
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_1:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_1:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 10
+y 160
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=Z Motor,motor=$(P):MOTOR_2"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 165
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 143
+y 243
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 18
+y 216
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_2.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 172
+y 216
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_2.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 15
+y 243
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 160
+w 53
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  Z Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 75
+y 245
+w 60
+h 16
+controlPv "$(P):MOTOR_2.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 181
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 63
+y 179
+w 83
+h 33
+controlPv "$(P):MOTOR_2"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 151
+y 181
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 151
+y 166
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2.SPMG"
+indicatorPv "$(P):MOTOR_2.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 48
+y 217
+w 115
+h 20
+controlPv "$(P):MOTOR_2.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 131
+y 166
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 131
+y 166
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_2:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 216
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_2:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 216
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_2:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 168
+y 216
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_2:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_2:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 10
+y 280
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=X1 Motor,motor=$(P):MOTOR_3"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 285
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 143
+y 363
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 18
+y 336
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_3.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 172
+y 336
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_3.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 15
+y 363
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 280
+w 61
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  X1 Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 75
+y 365
+w 60
+h 16
+controlPv "$(P):MOTOR_3.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 301
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 63
+y 299
+w 83
+h 33
+controlPv "$(P):MOTOR_3"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 151
+y 301
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 151
+y 286
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3.SPMG"
+indicatorPv "$(P):MOTOR_3.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 48
+y 337
+w 115
+h 20
+controlPv "$(P):MOTOR_3.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 131
+y 286
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 131
+y 286
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_3:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 336
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_3:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 336
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_3:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 168
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 168
+y 336
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_3:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_3:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 215
+y 40
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=X2 Motor,motor=$(P):MOTOR_4"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 45
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 348
+y 123
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 223
+y 96
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_4.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 377
+y 96
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_4.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 220
+y 123
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_4"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 40
+w 61
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  X2 Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 280
+y 125
+w 60
+h 16
+controlPv "$(P):MOTOR_4.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 61
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 268
+y 59
+w 83
+h 33
+controlPv "$(P):MOTOR_4"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 356
+y 61
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 356
+y 46
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4.SPMG"
+indicatorPv "$(P):MOTOR_4.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 253
+y 97
+w 115
+h 20
+controlPv "$(P):MOTOR_4.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 336
+y 46
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 336
+y 46
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_4:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 96
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_4:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 96
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_4:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 96
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 373
+y 96
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_4:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_4:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 215
+y 160
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=Phi Motor,motor=$(P):MOTOR_5"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 165
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 348
+y 243
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 223
+y 216
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_5.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 377
+y 216
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_5.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 220
+y 243
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_5"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 160
+w 65
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  Phi Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 280
+y 245
+w 60
+h 16
+controlPv "$(P):MOTOR_5.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 181
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 268
+y 179
+w 83
+h 33
+controlPv "$(P):MOTOR_5"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 356
+y 181
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 356
+y 166
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5.SPMG"
+indicatorPv "$(P):MOTOR_5.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 253
+y 217
+w 115
+h 20
+controlPv "$(P):MOTOR_5.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 336
+y 166
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 336
+y 166
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_5:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 216
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_5:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 216
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_5:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 216
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 373
+y 216
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_5:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_5:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 215
+y 280
+w 189
+h 109
+fgColor index 0
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 0
+font "helvetica-medium-r-14.0"
+xPosOffset -100
+yPosOffset -100
+button3Popup
+invisible
+buttonLabel "HELP"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor-embed-small-tooltip"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "box-label=Omega Motor,motor=$(P):MOTOR_6"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 285
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 348
+y 363
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6.STOP"
+pressValue "1"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 223
+y 336
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 5
+minValues {
+  0 3
+  2 1
+  3 2
+}
+maxValues {
+  0 4
+  2 2
+  3 3
+  4 1
+}
+controlPvs {
+  0 "$(P):MOTOR_6.SEVR"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Symbol)
+object activeSymbolClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 377
+y 336
+w 20
+h 20
+file "symbols-traffic-light-symbol.edl"
+numStates 6
+minValues {
+  4 1
+}
+maxValues {
+  4 2
+  5 1
+}
+controlPvs {
+  0 "$(P):MOTOR_6.DMOV"
+}
+numPvs 1
+useOriginalSize
+useOriginalColors
+fgColor index 14
+bgColor index 3
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 220
+y 363
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motor.edl"
+}
+symbols {
+  0 "motor=$(P):MOTOR_6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 280
+w 90
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "  Omega Motor  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 280
+y 365
+w 60
+h 16
+controlPv "$(P):MOTOR_6.TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 301
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6.TWR"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 268
+y 299
+w 83
+h 33
+controlPv "$(P):MOTOR_6"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+font "arial-bold-r-14.0"
+fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 356
+y 301
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6.TWF"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 356
+y 286
+w 43
+h 13
+fgColor index 25
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6.SPMG"
+indicatorPv "$(P):MOTOR_6.SPMG"
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 253
+y 337
+w 115
+h 20
+controlPv "$(P):MOTOR_6.RBV"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 336
+y 286
+w 18
+h 11
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 336
+y 286
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6:KILL.PROC"
+pressValue "1"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(P):MOTOR_6:KILL"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 336
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "ALoss"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&2\}($(P):MOTOR_6:ELOSS)"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 373
+y 336
+w 28
+h 21
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 21
+value {
+  "SFail"
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&4\}($(P):MOTOR_6:ELOSS)"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 373
+y 336
+w 28
+h 21
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 373
+y 336
+w 28
+h 21
+fgColor index 14
+onColor index 21
+offColor index 20
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):MOTOR_6:ELOSSRC.A"
+pressValue "0"
+onLabel "ELoss"
+offLabel "Eloss"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{A&1\}($(P):MOTOR_6:ELOSS)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 50
+h 30
+
+beginGroup
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 48
+h 29
+lineColor index 1
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 2
+w 48
+h 29
+lineColor index 11
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 2
+w 47
+h 27
+lineColor index 49
+fill
+fillColor index 48
+lineWidth 3
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 12
+y 6
+w 4
+h 3
+lineColor index 1
+fill
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 50
+h 30
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "RealMotors"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 420
+y 370
+w 120
+h 20
+fgColor index 46
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-medium-r-16.0"
+3d
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 420
+y 60
+w 120
+h 20
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):HOME.PROC"
+pressValue "1"
+onLabel "Home"
+offLabel "Home"
+3d
+font "arial-medium-r-14.0"
+visPv "$(P):CLEAR_TO_HOME"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 425
+y 140
+w 115
+h 20
+controlPv "$(P):HOMESTATUS"
+fgColor index 15
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+

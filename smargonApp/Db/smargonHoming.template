@@ -3,6 +3,7 @@
 # % macro, ZEBRA, Base pv for the zebra used
 
 # Depends on stubOffsets.template
+# % gui, SMARGON, edm, Smargon.edl, P=$(P)
 
 
 # Read the current homing status from the power pmac
