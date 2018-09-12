@@ -102,7 +102,7 @@ class smargon(Device,):
     ArgInfo = makeArgInfo(__init__,
         P = Simple("Device Prefix", str),
         PPMAC_PORT = Simple("Power pmac port name", str),
-        SSH_PORT = Simple("Low leve SSH port name", str),
+        SSH_PORT = Simple("Low level SSH port name", str),
         PPMAC_NO = Simple("Power pmac number", int),
         IP_ADDRESS = Simple("PPMAC_NO IP address", str),
         ZEBRA = Simple("Base PV for zebra", str),
