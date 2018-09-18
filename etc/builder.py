@@ -93,7 +93,7 @@ class smargon(Device,):
         self.CS_PORT = "CS" + str(CS_NO)
 
         # Instatiate the motors and motor controller
-        _smargonMotors(P=self.P, PPMAC_PORT=self.PPMAC_PORT,PPMAC_PREFIX=self.PPMAC_PREFIX,SSH_PORT=self.SSH_PORT,CS_NO=self.CS_NO,CS_PORT=self.CS_PORT)
+        _smargonMotors(P=self.P, PPMAC_PORT=self.PPMAC_PORT,IP_ADDRESS=self.IP_ADDRESS,PPMAC_PREFIX=self.PPMAC_PREFIX,SSH_PORT=self.SSH_PORT,CS_NO=self.CS_NO,CS_PORT=self.CS_PORT)
         _configOnStartup(P=self.P,PPMAC_PORT=self.PPMAC_PORT,PPMAC_PREFIX=self.PPMAC_PREFIX)
         _homingLogic(P=self.P,PPMAC_PORT=self.PPMAC_PORT,ZEBRA=self.ZEBRA)
         _stubOffsets(P=self.P,PPMAC_PORT=self.PPMAC_PORT)
