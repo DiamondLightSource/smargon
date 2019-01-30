@@ -6,7 +6,7 @@ SUPPORT       = /dls_sw/prod/R3.14.12.3/support
 ASYN=           $(SUPPORT)/asyn/4-31
 BUSY =          $(SUPPORT)/busy/1-6-1dls1
 MOTOR=          $(SUPPORT)/motor/6-9dls14
-PMAC=           /home/jjc62351/work/pmac
+PMAC=           $(SUPPORT)/pmac/2-1-5
 DEVIOCSTATS =   $(SUPPORT)/devIocStats/3-1-14dls2-4
 POSITIONER=     $(SUPPORT)/positioner/3-2-1
 PVLOGGING =     $(SUPPORT)/pvlogging/1-3
@@ -14,6 +14,4 @@ CALC =          $(SUPPORT)/calc/3-1
 AUTOSAVE =      $(SUPPORT)/autosave/5-0dls6
 
 EPICS_BASE=/dls_sw/epics/R3.14.12.3/base
-
-
 
