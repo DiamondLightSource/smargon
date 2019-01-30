@@ -2,7 +2,6 @@
 <components arch="linux-x86_64">
 	<pmac.pmacAsynSSHPort IP="$(IP_ADDRESS)" name="$(SSH_PORT)"/>
 	<pmac.PowerPMAC NAxes="8" P="$(P)" Port="$(SSH_PORT)" name="$(PPMAC_PORT)"/>
-	<pmac.PowerPmacStatus DEVICE="$(PPMAC_PREFIX)" FEEDRATE="0" NAXES="8" PLC="13" PORT="$(PPMAC_PORT)" TIMEOUT="100" name="PPMAC_STATUS"/>
     <pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="1" DESC="SmarGon Y" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_1" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
 	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="2" DESC="SmarGon Z" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_2" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
 	<pmac.dls_pmac_asyn_motor ACCL="0.10" ADDR="3" DESC="SmarGon X1" DHLM="0" DLLM="0" EGU="mm" HLSV="NO_ALARM" HOMEVIS="0" HOMEVISSTR="Use Home Button" M=":MOTOR_3" MRES=".000005" P="$(P)" PORT="$(PPMAC_PORT)" PREC="5" SCALE="200" SPORT="$(SSH_PORT)" SREV="200" TWV="1" VELO="5"/>
